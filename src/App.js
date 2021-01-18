@@ -21,7 +21,7 @@ function App() {
       <Route path="/Factorial" component={Factorial} />
       <Route path="/CircleAnP" component={CircleAnP} />
       <Route path="/Score" component={Score} />
-      <FunVdSwitch />
+      <Route path="/FunVdSwitch" component={FunVdSwitch} />
     </Router>
   );
 }

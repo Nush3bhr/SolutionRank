@@ -8,7 +8,9 @@ const FunVdSwitch = () => {
   };
   const getLetter = (s) => {
     let alpha;
-    switch (s.charAt(0)) {
+    switch (
+      s.charAt(0) //we can also us s[0]
+    ) {
       case "a" || "e" || "i" || "o" || "u":
         alpha = "A";
         break;
