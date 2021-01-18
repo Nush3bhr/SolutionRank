@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Home from "./Components/Home";
+import AreaAndPerimeter from "./Components/AreaAndPerimeter";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Factorial from "./Components/Factorial";
+import CircleAnP from "./Components/CircleAnP";
+import Score from "./Components/Score";
+import FunVdSwitch from "./Components/FunVdSwitch";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Link to="/">
+        {" "}
+        <button>CoolHome</button>
+      </Link>
+      <Route path="/" component={Home} />
+      <Route path="/AreaAndPerimeter" component={AreaAndPerimeter} />
+      <Route path="/Factorial" component={Factorial} />
+      <Route path="/CircleAnP" component={CircleAnP} />
+      <Route path="/Score" component={Score} />
+      <FunVdSwitch />
+    </Router>
   );
 }
 
