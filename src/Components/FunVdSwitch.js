@@ -3,9 +3,11 @@ import React, { useState } from "react";
 const FunVdSwitch = () => {
   const [string, setString] = useState("");
   const [letter, setLetter] = useState("");
+
   const handleChange = (event) => {
     setString(event.target.value);
   };
+
   const getLetter = (s) => {
     switch (
       s.charAt(0) //we can also us s[0]
@@ -34,10 +36,12 @@ const FunVdSwitch = () => {
         return "D";
     }
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setLetter(getLetter(string));
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <h5>
