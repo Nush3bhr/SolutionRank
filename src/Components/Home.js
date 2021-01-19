@@ -23,7 +23,11 @@ const Home = () => {
       <br />
       <button onClick={() => navigate("/VowelNConso")}>VowelNConsonants</button>
       <br />
-      <button onClick={() => navigate("/SecondMaxNo")}>Get Number</button>
+      <button onClick={() => navigate("/SecondMaxNo")}>
+        Second Max Number
+      </button>
+      <br />
+      <button onClick={() => navigate("/StringRev")}>RevString</button>
     </div>
   );
 };

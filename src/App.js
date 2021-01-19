@@ -10,6 +10,7 @@ import Score from "./Components/Score";
 import FunVdSwitch from "./Components/FunVdSwitch";
 import VowelNConso from "./Components/VowelNConso";
 import SecondMaxNo from "./Components/SecondMaxNo";
+import StringRev from "./Components/StringRev";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/FunVdSwitch" component={FunVdSwitch} />
       <Route path="/VowelNConso" component={VowelNConso} />
       <Route path="/SecondMaxNo" component={SecondMaxNo} />
+      <Route path="/StringRev" component={StringRev} />
     </Router>
   );
 }
