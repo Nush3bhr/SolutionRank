@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 const SecondMaxNo = () => {
   //   const [n, setN] = useState();
   const [numValue, setNumValue] = useState("");
@@ -6,6 +7,7 @@ const SecondMaxNo = () => {
   //   const handleChange = (event) => {
   //     setN(event.target.value);
   //   };
+
   const handleInputChange = (event) => {
     setNumValue(event.target.value);
   };
@@ -30,6 +32,7 @@ const SecondMaxNo = () => {
     }
     return " no second largest";
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setOp(getSecondLargest(numValue));

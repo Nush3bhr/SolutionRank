@@ -8,6 +8,8 @@ import Factorial from "./Components/Factorial";
 import CircleAnP from "./Components/CircleAnP";
 import Score from "./Components/Score";
 import FunVdSwitch from "./Components/FunVdSwitch";
+import VowelNConso from "./Components/VowelNConso";
+import SecondMaxNo from "./Components/SecondMaxNo";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Route path="/CircleAnP" component={CircleAnP} />
       <Route path="/Score" component={Score} />
       <Route path="/FunVdSwitch" component={FunVdSwitch} />
+      <Route path="/VowelNConso" component={VowelNConso} />
+      <Route path="/SecondMaxNo" component={SecondMaxNo} />
     </Router>
   );
 }

@@ -38,7 +38,7 @@ const FunVdSwitch = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); //prevents the default bheaviour of form(ie always reload the page)
     setLetter(getLetter(string));
   };
 

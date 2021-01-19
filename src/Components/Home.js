@@ -20,6 +20,10 @@ const Home = () => {
       <button onClick={() => navigate("/Score")}>Get ur Score</button>
       <br />
       <button onClick={() => navigate("/FunVdSwitch")}>Get Letter</button>
+      <br />
+      <button onClick={() => navigate("/VowelNConso")}>VowelNConsonants</button>
+      <br />
+      <button onClick={() => navigate("/SecondMaxNo")}>Get Number</button>
     </div>
   );
 };
