@@ -13,7 +13,7 @@ const SecondMaxNo = () => {
   };
 
   const getSecondLargest = (nums) => {
-    nums = nums.split(",").map(Number);
+    nums = nums.split(",").map(Number); //to split the string based on parameter into an array and map() used to call the provided function once for each element in array
     for (let j = 0; j < nums.length; j++) {
       for (let i = 0; i < nums.length - 1; i++) {
         //swapping 2 nos
