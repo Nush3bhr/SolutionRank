@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
 const FunVdSwitch = () => {
@@ -10,7 +11,7 @@ const FunVdSwitch = () => {
 
   const getLetter = (s) => {
     switch (
-      s.charAt(0) //we can also us s[0]
+      s.charAt(0) //we can also use s[0]
     ) {
       case "a":
       case "e":
@@ -56,12 +57,22 @@ const FunVdSwitch = () => {
         <br />
         else return D.
       </h5>
-      <input type="text" value={string} onChange={handleChange} />
+      <input
+        type="text"
+        placeholder="Type a string"
+        value={string}
+        onChange={handleChange}
+      />
       <br />
       <button type="submit">getLetter</button>
       <br />
       <strong>Letter:</strong>
       {letter}
+      <br />
+      <Link to="/">
+        {" "}
+        <button>Home</button>
+      </Link>
     </form>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CircleAnP = () => {
-  const [rad, setRad] = useState();
+  const [rad, setRad] = useState("");
   const [area, setArea] = useState();
   const [perimeter, setPerimeter] = useState();
   const handleChange = (event) => {
@@ -20,23 +21,30 @@ const CircleAnP = () => {
     e.preventDefault();
     setArea(circleArea(rad));
     setPerimeter(circlePeri(rad));
-    setRad(""); //to make input field empty on submit of form
+    // setRad(""); //to make input field empty on submit of form
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Area N Perimeter of Circle</h2>
-      <label>enter radius of circle: </label>
+      <label>Enter radius of circle: </label>
       <input type="number" value={rad} onChange={handleChange} />
       <br />
       <button type="submit">Calculate!!</button>
       <p>
+        radius: {rad}
+        <br />
         <strong>Area of cicrcle:</strong>
         {area}
         <br />
         <strong>Perimeter of circle:</strong>
         {perimeter}
       </p>
+      <br />
+      <Link to="/">
+        {" "}
+        <button>Home</button>
+      </Link>
     </form>
   );
 };

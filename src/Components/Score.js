@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
 const Score = () => {
-  const [marks, setMarks] = useState();
+  const [marks, setMarks] = useState("");
   const [gradeEarn, setGradeEarn] = useState("");
   const handleChange = (event) => {
     setMarks(event.target.value);
@@ -40,10 +41,13 @@ const Score = () => {
       <br />
       <button type="submit">GetGrade</button>
       <br />
-      <p>
-        <strong>Final Grade earned:</strong>
-        {gradeEarn}
-      </p>
+      <strong>Final Grade earned:</strong>
+      {gradeEarn}
+      <br />
+      <Link to="/">
+        {" "}
+        <button>Home</button>
+      </Link>
     </form>
   );
 };

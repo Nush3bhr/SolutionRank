@@ -1,13 +1,17 @@
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
 const VowelNConso = () => {
   const [str, setStr] = useState("");
-  const [output, setOutput] = useState([]);
+  // const [output, setOutput] = useState([]);
+  const [vow, setVow] = useState([]);
+  const [cons, setCons] = useState([]);
+
   const handleChange = (event) => {
     setStr(event.target.value);
   };
-  const vowelsAndConsonants = (newStr) => {
-    const s = newStr.toLowerCase();
+  const vowelsAndConsonants = () => {
+    const s = str.toLowerCase();
     let vowel = [];
     let conso = [];
     for (let i = 0; i < s.length; i++) {
@@ -18,23 +22,20 @@ const VowelNConso = () => {
         s[i] === "o" ||
         s[i] === "u"
       ) {
-        vowel = vowel + s[i];
+        vowel.push(s[i]);
       } else {
-        conso = conso + s[i];
+        conso.push(s[i]);
       }
     }
     // console.log(vowel);
     // console.log(conso);
-
-    let op = vowel.concat(conso);
-    console.log(op);
-    for (let j = 0; j < op.length; j++) {
-      console.log(j + ":" + op[j] + "  "); //want to return the same output.how?
-    }
+    setVow(vowel);
+    setCons(conso);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOutput(vowelsAndConsonants(str));
+    vowelsAndConsonants();
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -48,7 +49,28 @@ const VowelNConso = () => {
       <br />
       <button type="submit">Click</button>
       <br />
-      <strong>Output:{output}</strong>
+      <strong>Vowels</strong>
+      <br />
+      {vow.map((vowel, index) => {
+        // console.log(vow);
+        return (
+          <div key={index}>
+            {vowel}
+            <br />
+          </div>
+        );
+      })}
+      <br />
+      <strong>Consonants</strong>
+      <br />
+      {cons.map((c, ind) => (
+        <div key={ind}>{c}</div>
+      ))}
+      <br />
+      <Link to="/">
+        {" "}
+        <button>Home</button>
+      </Link>
     </form>
   );
 };

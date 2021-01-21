@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Factorial = () => {
-  const [fact, setFact] = useState();
-  const [num, setNum] = useState();
+  const [fact, setFact] = useState("");
+  const [num, setNum] = useState("num");
   const handleChange = (e) => {
     setNum(e.target.value);
   };
@@ -22,12 +23,19 @@ const Factorial = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h3>Calculate Factorial</h3>
       <label>Enter the no:</label>
       <input type="number" value={num} onChange={handleChange} />
       <br />
       <button type="submit">Calculate</button>
       <br />
-      Factorial: {fact}
+      <strong>Factorial of</strong> {num} <strong>is </strong>
+      {fact}
+      <br />
+      <Link to="/">
+        {" "}
+        <button>Home</button>
+      </Link>
     </form>
   );
 };
