@@ -42,7 +42,6 @@ const CircleAnP = () => {
   return (
     <Grid container justify="center">
       <Grid item justify="center" style={{ backgroundColor: "black" }}>
-        <Abhi />
         <Card
           style={{
             backgroundColor: "khaki",
