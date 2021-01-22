@@ -1,5 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 500,
+  },
+});
 
 const CircleAnP = () => {
   const [rad, setRad] = useState("");
@@ -23,29 +37,49 @@ const CircleAnP = () => {
     setPerimeter(circlePeri(rad));
     // setRad(""); //to make input field empty on submit of form
   };
+  const classes = useStyles();
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Area N Perimeter of Circle</h2>
-      <label>Enter radius of circle: </label>
-      <input type="number" value={rad} onChange={handleChange} />
-      <br />
-      <button type="submit">Calculate!!</button>
-      <p>
-        radius: {rad}
-        <br />
-        <strong>Area of cicrcle:</strong>
-        {area}
-        <br />
-        <strong>Perimeter of circle:</strong>
-        {perimeter}
-      </p>
-      <br />
-      <Link to="/">
-        {" "}
-        <button>Home</button>
-      </Link>
-    </form>
+    <div
+      maxWidth="sm"
+      style={{
+        backgroundColor: "#fceedd",
+        padding: "auto",
+        height: "60vh",
+
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ margin: "auto" }}>
+        <Card
+          style={{
+            backgroundColor: "khaki",
+            textAlign: "center",
+          }}
+          variant="outlined"
+        >
+          <form onSubmit={handleSubmit}>
+            <h2>Area N Perimeter of Circle</h2>
+
+            <label>Enter radius of circle: </label>
+            <input type="number" value={rad} onChange={handleChange} />
+            <br />
+            <button type="submit">Calculate!!</button>
+            <p>
+              radius: {rad}
+              <br />
+              <strong>Area of cicrcle:</strong>
+              {area}
+              <br />
+              <strong>Perimeter of circle:</strong>
+              {perimeter}
+            </p>
+            <br />
+          </form>
+        </Card>
+      </div>
+    </div>
   );
 };
 export default CircleAnP;

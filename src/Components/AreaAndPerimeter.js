@@ -1,6 +1,9 @@
-import Container from "@material-ui/core/Container";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
 
 const AreaAndPerimeter = () => {
   const [area, setArea] = useState("");
@@ -29,42 +32,52 @@ const AreaAndPerimeter = () => {
     <Container
       maxWidth="sm"
       style={{
-        backgroundColor: "peachpuff",
-        height: "30vh",
+        backgroundColor: "#fceedd",
+        padding: "10px",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <form onSubmit={handleSubmit}>
         <h2 className="font">Q: Find the Area and Perimeter of rectangle.</h2>
         <br />
-        <label className="font">Length: </label>
-        <input
+        <Typography>
+          <strong>Length:</strong>{" "}
+        </Typography>
+        <TextField
+          variant="outlined"
+          size="small"
           name="length"
           type="number"
-          placeholder="enter length"
+          placeholder="Enter length"
           value={length}
           onChange={handleChange}
         />
         <br />
-        <label className="font">Width: </label>
-        <input
+        <br />
+        <Typography>
+          <strong>Width:</strong>{" "}
+        </Typography>
+        <TextField
+          variant="outlined"
+          size="small"
           name="width"
           type="number"
-          placeholder="enter width"
+          placeholder="Enter width"
           value={width}
           onChange={handleChange}
         />
         <br />
-        <input type="submit" value="Calculate" />
+        <br />
+        {/* <input type="submit" value="Calculate" /> */}
+        <Button variant="outlined" color="secondary" type="submit" size="small">
+          Calculate
+        </Button>
         <br />
         <p className="font">
-          Area: {area} <br />
-          Perimeter: {perimeter}
+          <strong>Area: </strong> {area} <br />
+          <strong> Perimeter: </strong> {perimeter}
         </p>
-        <br />
-        <Link to="/">
-          {" "}
-          <button>Home</button>
-        </Link>
       </form>
     </Container>
   );
