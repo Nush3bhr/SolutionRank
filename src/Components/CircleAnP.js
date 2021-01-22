@@ -40,22 +40,15 @@ const CircleAnP = () => {
   const classes = useStyles();
 
   return (
-    <div
-      maxWidth="sm"
-      style={{
-        backgroundColor: "#fceedd",
-        padding: "auto",
-        height: "60vh",
-
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ margin: "auto" }}>
+    <Grid container justify="center">
+      <Grid item justify="center" style={{ backgroundColor: "black" }}>
+        <Abhi />
         <Card
           style={{
             backgroundColor: "khaki",
             textAlign: "center",
+            width: "50vw",
+            margin: "20px",
           }}
           variant="outlined"
         >
@@ -78,8 +71,8 @@ const CircleAnP = () => {
             <br />
           </form>
         </Card>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 export default CircleAnP;
