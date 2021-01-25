@@ -14,16 +14,16 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div className="center">
+    <div className="center">
+      <div>
         <h1>DASHBOARD</h1>
       </div>
 
       <Grid
         container
+        justify="center"
         style={{
           backgroundColor: "peachpuff",
-          width: "45vw",
           padding: "20px",
         }}
       >

@@ -39,10 +39,6 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
-  const history = useHistory();
-  const navigate = (route) => {
-    history.push(route);
-  };
 
   return (
     <div style={{ backgroundColor: "rgb(248, 245, 213) ", height: "100vh" }}>
@@ -55,26 +51,24 @@ const App = () => {
                 src="https://thumbs.dreamstime.com/b/logo-letter-monogram-slash-modern-logo-designs-template-black-color-white-background-sr-logo-letter-monogram-slash-175325271.jpg"
               />
             </Link>
-
-            <Typography variant="h6" className={classes.title}>
-              <Box fontWeight="fontWeightBold" fontSize="h4.fontSize" m={1}>
-                SolutionRank
-              </Box>
-            </Typography>
+            <a href="/" className={classes.title}>
+              <Typography variant="h6">
+                <Box fontWeight="fontWeightBold" fontSize="h4.fontSize" m={1}>
+                  SolutionRank
+                </Box>
+              </Typography>
+            </a>
             <Link to="/">
               {" "}
               <Button variant="contained" color="primary" size="large">
                 HOME
               </Button>
             </Link>
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={() => navigate("/Demo")}
-            >
-              Demo
-            </Button>
+            <Link to="/Demo">
+              <Button variant="contained" color="primary" size="large">
+                Demo
+              </Button>
+            </Link>
           </Toolbar>
         </AppBar>
         <div style={{ padding: "100px" }}>
