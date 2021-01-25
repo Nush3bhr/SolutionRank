@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./Components/Home";
@@ -11,6 +12,7 @@ import VowelNConso from "./Components/VowelNConso";
 import SecondMaxNo from "./Components/SecondMaxNo";
 import StringRev from "./Components/StringRev";
 import RectAnP from "./Components/RectAnP";
+import Demo from "./Demo";
 
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
@@ -37,9 +39,13 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
+  const history = useHistory();
+  const navigate = (route) => {
+    history.push(route);
+  };
 
   return (
-    <div style={{ backgroundColor: "pink", height: "100vh" }}>
+    <div style={{ backgroundColor: "rgb(248, 245, 213) ", height: "100vh" }}>
       <Router>
         <AppBar position="fixed">
           <Toolbar>
@@ -61,11 +67,20 @@ const App = () => {
                 HOME
               </Button>
             </Link>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              onClick={() => navigate("/Demo")}
+            >
+              Demo
+            </Button>
           </Toolbar>
         </AppBar>
-
-        <div style={{ paddingTop: "170px" }}>
+        <div style={{ padding: "100px" }}>
           <Route path="/" exact component={Home} />
+          <Route path="/Demo" exact component={Demo} />
+          {/* <Demo path="/Demo" /> */}
           <Route path="/AreaAndPerimeter" exact component={AreaAndPerimeter} />
           <Route path="/Factorial" exact component={Factorial} />
           <Route path="/CircleAnP" exact component={CircleAnP} />
@@ -76,7 +91,7 @@ const App = () => {
           <Route path="/StringRev" exact component={StringRev} />
           <Route path="/RectAnP" exact component={RectAnP} />
         </div>
-      </Router>
+      </Router>{" "}
     </div>
   );
 };
