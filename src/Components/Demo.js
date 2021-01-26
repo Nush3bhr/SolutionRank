@@ -134,9 +134,7 @@ const Demo = (props) => {
 
       <Grid item xs={12} sm={6} md={4}>
         <h3>Food Variety:</h3>
-        {jsonData.data.variety.map((element, index) => {
-          return <div>{element.name}</div>;
-        })}
+        <div>{jsonData.data.variety.map((e, i) => e.name).join(", ")}</div>
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
