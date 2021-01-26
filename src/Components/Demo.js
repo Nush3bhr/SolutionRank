@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
+import { Check, Create } from "@material-ui/icons";
+import { TextField } from "@material-ui/core";
 
 const Demo = (props) => {
   const jsonData = {
@@ -80,19 +82,33 @@ const Demo = (props) => {
     },
   };
 
+  const [isEditable, setIsEditable] = useState(false);
+
   return (
     <Grid
       container
       spacing={3}
       style={{ padding: "auto", paddingLeft: "20px" }}
     >
-      <Grid item lg={12}>
-        <h1>General Information</h1>
+      <Grid container>
+        <Grid item lg={8}>
+          <h1>General Information</h1>
+        </Grid>
+        <Grid item container justify="flex-end">
+          <Create onClick={() => setIsEditable(true)} />
+
+          <Check onClick={() => setIsEditable(false)} />
+        </Grid>
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
         <h3>Raw Material Name</h3>
-        {jsonData.data.rawMaterialGroup.name}
+
+        {isEditable ? (
+          <TextField value={jsonData.data.rawMaterialGroup.name} />
+        ) : (
+          jsonData.data.rawMaterialGroup.name
+        )}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>

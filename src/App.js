@@ -12,7 +12,7 @@ import VowelNConso from "./Components/VowelNConso";
 import SecondMaxNo from "./Components/SecondMaxNo";
 import StringRev from "./Components/StringRev";
 import RectAnP from "./Components/RectAnP";
-import Demo from "./Demo";
+import Demo from "./Components/Demo";
 
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
