@@ -1,1 +1,1 @@
-Thid is my Project to show my HackerR=ank Solved problems in eact.
+Thid is my Project to show HackerRank problems solved in react.
