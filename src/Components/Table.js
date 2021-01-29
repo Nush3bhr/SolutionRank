@@ -29,15 +29,42 @@ const Table = () => {
       birthYear: 1345,
       birthCity: "Rewari",
     },
+    { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
   ]);
-  const deleteRows = (event, selectedRows) => {
-    console.log("b ", selectedRows);
-    data.map((e, i) => {
-      selectedRows.map((element, index) => {
-        console.log(element.tableData.id);
-      });
-    });
+
+  const deleteRows = (event, selectedRowValue) => {
+    console.log("event:", event);
+    console.log("selectedRowValue", selectedRowValue);
+    let remainingValue = [];
+    let deletedValue = [];
+    for (let i = 0; i < data.length; i++) {
+      let flag = 0;
+      for (let j = 0; j < selectedRowValue.length; j++) {
+        if (i === selectedRowValue[j].tableData.id) {
+          flag = 1;
+          deletedValue.push(data[i]);
+        }
+      }
+      if (flag === 0) {
+        remainingValue.push(data[i]);
+      }
+    }
+    console.log("deletedValue:", deletedValue);
+    console.log("remainingValue: ", remainingValue);
+    setData(remainingValue);
   };
+
+  // const deleteRows = (event, selectedRowValue) => {
+  //   console.log("event:", event);
+  //   console.log("selectedRowValue", selectedRowValue);
+  //   let newData = [...data];
+  //   newData.map((element,index) => {
+  //     selectedRowValue.map((ele,ind) =>{
+  //       if(selectedRowValue[ind])
+  //     })
+  //   })
+
+  // };
 
   return (
     <MaterialTable
@@ -59,7 +86,7 @@ const Table = () => {
             setTimeout(() => {
               console.log("newdata:", newData, "olddata:", oldData);
               const dataUpdate = [...data];
-              console.log("dattaupo:", dataUpdate, "olddata:", oldData);
+              console.log("dataupdate:", dataUpdate, "olddata:", oldData);
               const index = oldData.tableData.id;
               console.log("dataIndex:", dataUpdate[index]);
               dataUpdate[index] = newData;
