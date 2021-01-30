@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MaterialTable, { MTableToolbar } from "material-table";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -31,6 +31,149 @@ const Table = () => {
     },
     { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
   ]);
+
+  useEffect(() => {
+    console.log("AbhiRank Questions");
+    const arrStrings = ["Abhi", "Aish", "Anu", "Anshi", "Randy", "Bonda"];
+    const arrObjects = [
+      { name: "Aish", id: 2 },
+      { name: "Anu", id: 3 },
+      { name: "Anshi", id: 4 },
+      { name: "Randy", id: 5 },
+      { name: "Bonda", id: 6 },
+      { name: "Abhi", id: 1 },
+    ];
+    const selctedValuesToDelete = [
+      { name: "Anu", id: 3 },
+      { name: "Anshi", id: 4 },
+      { name: "Randy", id: 5 },
+      { name: "Bonda", id: 6 },
+    ];
+
+    // 1. Write a logic to filter arrStrings which have only 4 letters? (2 marks)
+    //USING FOR:
+    // let newArr1 = [];
+    // for (let i = 0; i < arrStrings.length; i++) {
+    //   if (arrStrings[i].length === 4) {
+    //     newArr1.push(arrStrings[i]);
+    //   }
+    // }
+    // console.log("newArr1:   ", newArr1);
+    //USING JS FUNCTION FILTER:
+    let newArr1 = arrStrings.filter((element, index) => {
+      return element.length === 4;
+    });
+    console.log("newArr1:   ", newArr1);
+
+    // 2. Write a logic to filter arrObjects in which names have only 4 letters and print their ids...?  (4 marks)
+    // let newArr2 = [];
+    // for (let i = 0; i < arrObjects.length; i++) {
+    //   if (arrObjects[i].name.length === 4) {
+    //     newArr2.push(arrObjects[i].id);
+    //   }
+    // }
+    // console.log("newArr2:   ", newArr2);
+    let newArr2 = arrObjects.filter((element, index) => {
+      return element.name.length === 4;
+    });
+    console.log("newArr2:   ", newArr2);
+
+    // 3. Write a logic to remove selectedValuesToDelete array of objects from arrObjects array?
+    // After deleting, show me both deleted and remaning values...
+    // let remaining = [],
+    //   deleted = [];
+
+    // for (let i = 0; i < arrObjects.length; i++) {
+    //   let flag = 0;
+    //   for (let j = 0; j < selctedValuesToDelete.length; j++) {
+    //     // console.log(
+    //     //   "arrObjects[i]:   ",
+    //     //   arrObjects[i],
+    //     //   "selctedValuesToDelete[j]:  ",
+    //     //   selctedValuesToDelete[j]
+    //     // );
+    //     // console.log(
+    //     //   "equate:  ",
+    //     //   arrObjects[i].id === selctedValuesToDelete[j].id
+    //     // );
+    //     if (arrObjects[i].id === selctedValuesToDelete[j].id) {
+    //       deleted.push(arrObjects[i]);
+    //       flag = 1;
+    //       break;
+    //     }
+    //   }
+    //   if (flag === 0) {
+    //     remaining.push(arrObjects[i]);
+    //   }
+    // }
+    // console.log("remainig:  ", remaining, "deleted:  ", deleted);
+
+    let deleted = arrObjects.map((element, index) => {
+      console.log(
+        "here:",
+        selctedValuesToDelete.map((ele, ind) => {
+          // console.log("elementId:", element.id, "eleId:  ", ele.id);
+          if (element.id === ele.id) {
+            return element;
+          }
+        })
+      );
+    });
+    console.log("deleted:  ", deleted);
+
+    // 4. Write a logic to get the highest id in arrObjects?
+    // let temp;
+    // for (let i = 0; i < arrObjects.length - 1; i++) {
+    //   for (let j = 1; j < arrObjects.length; j++) {
+    //     if (arrObjects[i].id < arrObjects[j].id) {
+    //       temp = arrObjects[i].id;
+    //       arrObjects[i].id = arrObjects[j].id;
+    //       arrObjects[j].id = temp;
+    //     }
+    //   }
+    // } //gives max array element on top
+    // console.log("checkMaxElement:  ", arrObjects);
+    // console.log("highestId:  ", arrObjects[0].id);
+
+    // for (let i = 0; i < arrObjects.length; i++) {
+    //   for (let j = 0; j < arrObjects.length - 1; j++) {
+    //     if (arrObjects[j].id < arrObjects[j + 1].id) {
+    //       temp = arrObjects[j].id;
+    //       arrObjects[j].id = arrObjects[j + 1].id;
+    //       arrObjects[j + 1].id = temp;
+    //     }
+    //   }
+    // }//   " SORT " the array in desc order
+    // console.log("descArr:   ", arrObjects);
+    // console.log("highestId:  ", arrObjects[0].id);
+
+    // 5. Write a logic to print names which have only 1 vowel in its name from arrObjects?
+
+    let count, i;
+    for (let i = 0; i < arrObjects.length; i++) {
+      let count = 0;
+      let name = arrObjects[i].name.toLowerCase();
+      // console.log("name:  ", name);
+
+      for (let j = 0; j < name.length; j++) {
+        // console.log(":charat:", name.charAt(j));
+        if (
+          name.charAt(j) === "a" ||
+          name.charAt(j) === "e" ||
+          name.charAt(j) === "i" ||
+          name.charAt(j) === "o" ||
+          name.charAt(j) === "u"
+        ) {
+          count = count + 1;
+        }
+      }
+
+      // console.log("count:", count);
+      if (count === 1) {
+        console.log("name with 1 vowel:    ", arrObjects[i].name);
+      }
+    }
+  }, []);
 
   const deleteRows = (event, selectedRowValue) => {
     console.log("event:", event);
