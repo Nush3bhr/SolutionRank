@@ -45,7 +45,7 @@ const Table = () => {
     ];
     const guesses = [
       { name: "Aish", id: 2, country: "Germany" },
-      { name: "Anu", id: 3, country: "China" },
+      { name: "Anu", id: 3, country: "Japan" },
       { name: "Anshi", id: 4, country: "Kazagistan" },
       { name: "Randy", id: 5, country: "India" },
       { name: "Bonda", id: 6, country: "USA" },
@@ -61,6 +61,7 @@ const Table = () => {
     // 6. Print names who are from India
     // 7. Print IDs which are odd numbers
     // 8. Print the correct country guesses
+    // 9. Check if id: 10 exists in your arrObjects
 
     // 1. Write a logic to filter arrStrings which have only 4 letters? (2 marks)
     //USING FOR:
