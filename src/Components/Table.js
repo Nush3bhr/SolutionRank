@@ -36,12 +36,20 @@ const Table = () => {
     console.log("AbhiRank Questions");
     const arrStrings = ["Abhi", "Aish", "Anu", "Anshi", "Randy", "Bonda"];
     const arrObjects = [
-      { name: "Aish", id: 2 },
-      { name: "Anu", id: 3 },
-      { name: "Anshi", id: 4 },
-      { name: "Randy", id: 5 },
-      { name: "Bonda", id: 6 },
-      { name: "Abhi", id: 1 },
+      { name: "Aish", id: 2, country: "India" },
+      { name: "Anu", id: 3, country: "Pakistan" },
+      { name: "Anshi", id: 4, country: "Kazagistan" },
+      { name: "Randy", id: 5, country: "Canada" },
+      { name: "Bonda", id: 6, country: "India" },
+      { name: "Abhi", id: 1, country: "India" },
+    ];
+    const guesses = [
+      { name: "Aish", id: 2, country: "Germany" },
+      { name: "Anu", id: 3, country: "China" },
+      { name: "Anshi", id: 4, country: "Kazagistan" },
+      { name: "Randy", id: 5, country: "India" },
+      { name: "Bonda", id: 6, country: "USA" },
+      { name: "Abhi", id: 1, country: "India" },
     ];
     const selctedValuesToDelete = [
       { name: "Anu", id: 3 },
@@ -49,6 +57,10 @@ const Table = () => {
       { name: "Randy", id: 5 },
       { name: "Bonda", id: 6 },
     ];
+
+    // 6. Print names who are from India
+    // 7. Print IDs which are odd numbers
+    // 8. Print the correct country guesses
 
     // 1. Write a logic to filter arrStrings which have only 4 letters? (2 marks)
     //USING FOR:
@@ -124,7 +136,8 @@ const Table = () => {
     // ............................................................................................
     let deleted = arrObjects.filter((element, index) => {
       let selected = selctedValuesToDelete.find(
-        (selectedElement, selectedIndex) => element.id === selectedElement.id
+        (selectedElement, selectedIndex) =>
+          element.id === selectedElement.id ? true : false
       )
         ? true
         : false;
@@ -149,9 +162,15 @@ const Table = () => {
     let temp;
     let highArr = arrObjects.map((element, index) => {
       console.log("indexId:", arrObjects[index].id);
-      console.log("indexId +1:", arrObjects[index + 1].id);
+      console.log(
+        "indexId +1:",
+        arrObjects[index + 1] && arrObjects[index + 1].id
+      );
 
-      if (arrObjects[index].id < arrObjects[index + 1].id) {
+      if (
+        arrObjects[index + 1] &&
+        arrObjects[index].id < arrObjects[index + 1].id
+      ) {
         temp = arrObjects[index];
         arrObjects[index] = arrObjects[index + 1];
         arrObjects[index] = temp;
