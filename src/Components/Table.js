@@ -108,16 +108,27 @@ const Table = () => {
     // }
     // console.log("remainig:  ", remaining, "deleted:  ", deleted);
 
-    let deleted = arrObjects.map((element, index) => {
-      console.log(
-        "here:",
-        selctedValuesToDelete.map((ele, ind) => {
-          // console.log("elementId:", element.id, "eleId:  ", ele.id);
-          if (element.id === ele.id) {
-            return element;
-          }
-        })
-      );
+    // let deleted = arrObjects.map((element, index) => {
+    //   let selected = selctedValuesToDelete.find((ele, ind) => {
+    //     // console.log("elementId:", element.id, "eleId:  ", ele.id);
+    //     if (element.id === ele.id) {
+    //       return true;
+    //     }
+    //   });
+    //   console.log("selected:", selected);
+    //   return selected;
+    // });
+
+    // console.log("deleted:  ", deleted);
+
+    // ............................................................................................
+    let deleted = arrObjects.filter((element, index) => {
+      let selected = selctedValuesToDelete.find(
+        (selectedElement, selectedIndex) => element.id === selectedElement.id
+      )
+        ? true
+        : false;
+      return selected;
     });
     console.log("deleted:  ", deleted);
 
@@ -126,28 +137,45 @@ const Table = () => {
     // for (let i = 0; i < arrObjects.length - 1; i++) {
     //   for (let j = 1; j < arrObjects.length; j++) {
     //     if (arrObjects[i].id < arrObjects[j].id) {
-    //       temp = arrObjects[i].id;
-    //       arrObjects[i].id = arrObjects[j].id;
-    //       arrObjects[j].id = temp;
+    //       temp = arrObjects[i];
+    //       arrObjects[i] = arrObjects[j];
+    //       arrObjects[j] = temp;
     //     }
     //   }
     // } //gives max array element on top
     // console.log("checkMaxElement:  ", arrObjects);
     // console.log("highestId:  ", arrObjects[0].id);
+    // ............................................................................................
+    let temp;
+    let highArr = arrObjects.map((element, index) => {
+      console.log("indexId:", arrObjects[index].id);
+      console.log("indexId +1:", arrObjects[index + 1].id);
 
+      if (arrObjects[index].id < arrObjects[index + 1].id) {
+        temp = arrObjects[index];
+        arrObjects[index] = arrObjects[index + 1];
+        arrObjects[index] = temp;
+      }
+      return arrObjects;
+    });
+    console.log("highArr:  ", highArr);
+
+    // ............................................................................................
+    // let temp;
     // for (let i = 0; i < arrObjects.length; i++) {
     //   for (let j = 0; j < arrObjects.length - 1; j++) {
     //     if (arrObjects[j].id < arrObjects[j + 1].id) {
-    //       temp = arrObjects[j].id;
-    //       arrObjects[j].id = arrObjects[j + 1].id;
-    //       arrObjects[j + 1].id = temp;
+    //       temp = arrObjects[j];
+    //       arrObjects[j] = arrObjects[j + 1];
+    //       arrObjects[j + 1] = temp;
     //     }
     //   }
-    // }//   " SORT " the array in desc order
+    // } //   " SORT " the array in desc order
     // console.log("descArr:   ", arrObjects);
-    // console.log("highestId:  ", arrObjects[0].id);
+    // console.log("highestId:  ", arrObjects[0]);
 
     // 5. Write a logic to print names which have only 1 vowel in its name from arrObjects?
+    let a = arrObjects.map((element, index) => {});
 
     let count, i;
     for (let i = 0; i < arrObjects.length; i++) {
