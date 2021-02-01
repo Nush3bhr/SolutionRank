@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Components/Home";
 import AreaAndPerimeter from "./Components/AreaAndPerimeter";
 import Factorial from "./Components/Factorial";
@@ -102,19 +102,25 @@ const App = () => {
           </Toolbar>
         </AppBar>
         <div style={{ padding: "100px" }}>
-          <Route path="/" exact component={Home} />
-          <Route path="/Demo" exact component={Demo} />
-          <Route path="/Table" exact component={Table} />
-          <Route path="/FinishedProduct" exact component={FinishedProduct} />
-          <Route path="/AreaAndPerimeter" exact component={AreaAndPerimeter} />
-          <Route path="/Factorial" exact component={Factorial} />
-          <Route path="/CircleAnP" exact component={CircleAnP} />
-          <Route path="/Score" exact component={Score} />
-          <Route path="/FunVdSwitch" exact component={FunVdSwitch} />
-          <Route path="/VowelNConso" exact component={VowelNConso} />
-          <Route path="/SecondMaxNo" exact component={SecondMaxNo} />
-          <Route path="/StringRev" exact component={StringRev} />
-          <Route path="/RectAnP" exact component={RectAnP} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/Demo" exact component={Demo} />
+            <Route path="/Table" exact component={Table} />
+            <Route path="/FinishedProduct" exact component={FinishedProduct} />
+            <Route
+              path="/AreaAndPerimeter"
+              exact
+              component={AreaAndPerimeter}
+            />
+            <Route path="/Factorial" exact component={Factorial} />
+            <Route path="/CircleAnP" exact component={CircleAnP} />
+            <Route path="/Score" exact component={Score} />
+            <Route path="/FunVdSwitch" exact component={FunVdSwitch} />
+            <Route path="/VowelNConso" exact component={VowelNConso} />
+            <Route path="/SecondMaxNo" exact component={SecondMaxNo} />
+            <Route path="/StringRev" exact component={StringRev} />
+            <Route path="/RectAnP" exact component={RectAnP} />
+          </Switch>
         </div>
       </Router>{" "}
     </div>

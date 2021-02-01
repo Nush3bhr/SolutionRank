@@ -40,7 +40,7 @@ const Table = () => {
       { name: "Anu", id: 3, country: "Pakistan" },
       { name: "Anshi", id: 4, country: "Kazagistan" },
       { name: "Randy", id: 5, country: "Canada" },
-      { name: "Bonda", id: 6, country: "India" },
+      { name: "Bonda", id: 10, country: "India" },
       { name: "Abhi", id: 1, country: "India" },
     ];
     const guesses = [
@@ -59,9 +59,21 @@ const Table = () => {
     ];
 
     // 6. Print names who are from India
+    let indian = arrObjects.filter(
+      (element, index) => element.country === "India"
+    );
+    let citizen = indian.map((element, index) => element.name);
+    console.log("Indians:  ", indian, "citizens:  ", citizen);
+
     // 7. Print IDs which are odd numbers
+    let odd = arrObjects.filter((element, index) => element.id % 2 !== 0);
+    let oddId = odd.map((element, index) => element.id);
+    console.log("oddIdArr:   ", odd, "oddIDs:  ", oddId);
     // 8. Print the correct country guesses
+    guesses.map((element, index) => {});
     // 9. Check if id: 10 exists in your arrObjects
+    let exist = arrObjects.filter((element, index) => element.id === 10);
+    console.log("exist:", exist);
 
     // 1. Write a logic to filter arrStrings which have only 4 letters? (2 marks)
     //USING FOR:
