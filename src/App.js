@@ -15,6 +15,7 @@ import RectAnP from "./Components/RectAnP";
 import Demo from "./Components/Demo";
 import FinishedProduct from "./Components/FinishedProduct";
 import Table from "./Components/Table";
+import MatTable from "./Components/MatTable";
 
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
@@ -25,6 +26,7 @@ import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 
 import { makeStyles } from "@material-ui/core/styles";
+import FinishedTable2 from "./Components/FinishedTable2";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,14 +85,25 @@ const App = () => {
               </Button>
             </Link>
 
-            <Link to="/Table">
+            <Link to="/FinishedTable2">
               <Button
                 variant="contained"
                 color="primary"
                 size="large"
                 style={{ marginRight: "10px" }}
               >
-                Table
+                FinishedTable
+              </Button>
+            </Link>
+
+            <Link to="/MatTable">
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                style={{ marginRight: "10px" }}
+              >
+                MatTable
               </Button>
             </Link>
 
@@ -106,6 +119,8 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route path="/Demo" exact component={Demo} />
             <Route path="/Table" exact component={Table} />
+            <Route path="/FinishedTable2" exact component={FinishedTable2} />
+            <Route path="/MatTable" exact component={MatTable} />
             <Route path="/FinishedProduct" exact component={FinishedProduct} />
             <Route
               path="/AreaAndPerimeter"

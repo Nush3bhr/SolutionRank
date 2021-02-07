@@ -101,22 +101,19 @@ const Demo = (props) => {
   const types = ["fruits", "vegies"];
   const handleSelect = (event, value) => {
     setFoodType(value);
-
-    // console.log("event:", event.target.value, "value", value);
   };
 
   const [variety, setVariety] = useState(["Food"]);
   const varieties = ["Food", "Fruit", "Fuji"];
-  const [group, setGroup] = useState(["Fuji"]);
-  const groups = ["Apple", "Kashmiri", "Shimla", "Fuji"];
   const handleVariety = (event, value) => {
     console.log("value:", value, "eventname:", event.target.name);
-    // if (event.target.name === "variety") {
     setVariety(value);
+  };
 
-    // } else if (event.target.name === "group") {
-    //   setGroup(value);
-    // }
+  const [group, setGroup] = useState(["Fuji"]);
+  const groups = ["Apple", "Kashmiri", "Shimla", "Fuji"];
+  const handleGroup = (event, value) => {
+    setGroup(value);
   };
 
   const [parameter, setParameter] = useState({ name: "FP1" });
@@ -147,8 +144,8 @@ const Demo = (props) => {
       phoneNumberLength: 10,
     },
   ];
+
   const handleParameter = (event, value) => {
-    // console.log("event:", event.name, "value:", value.name);
     if (event.target.name === "country") {
       setCountry(value);
     } else {
@@ -166,7 +163,6 @@ const Demo = (props) => {
     },
   ];
   const handlePlants = (event, value) => {
-    // console.log(value);
     setPlant(value);
   };
 
@@ -210,7 +206,6 @@ const Demo = (props) => {
         ) : (
           days
         )}
-        {/* {jsonData.data.shelfLife.value + " " + jsonData.data.shelfLife.uom} */}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
@@ -228,8 +223,6 @@ const Demo = (props) => {
         ) : (
           foodType
         )}
-
-        {/* {jsonData.data.foodType.name} */}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
@@ -239,7 +232,7 @@ const Demo = (props) => {
             multiple
             name="group"
             value={group}
-            onChange={handleVariety}
+            onChange={handleGroup}
             options={groups}
             renderInput={(params) => (
               <TextField {...params} variant="outlined" label="Select group" />
@@ -248,8 +241,6 @@ const Demo = (props) => {
         ) : (
           group.join(", ")
         )}
-
-        {/* {jsonData.data.rawMaterialGroup.name} */}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
@@ -257,7 +248,7 @@ const Demo = (props) => {
 
         {isEditable ? (
           <Autocomplete
-            onChange={handleSelect}
+            onChange={handleParameter}
             name="country"
             value={country}
             options={countries}
@@ -273,7 +264,6 @@ const Demo = (props) => {
         ) : (
           country
         )}
-        {/* {jsonData.data.countryOfOrigin.map((e, i) => e.name).join(", ")} */}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
@@ -306,7 +296,6 @@ const Demo = (props) => {
         ) : (
           variety.join(", ")
         )}
-        {/* <div>{jsonData.data.variety.map((e, i) => e.name).join(", ")}</div> */}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
@@ -330,12 +319,6 @@ const Demo = (props) => {
         ) : (
           parameter.name
         )}
-
-        {/* <div>
-          {jsonData.data.parameter
-            .map((element, index) => element.name)
-            .join(", ")}
-        </div> */}
       </Grid>
 
       <Grid item xs={12} sm={6} md={4}>
@@ -343,28 +326,19 @@ const Demo = (props) => {
         {isEditable ? (
           <Autocomplete
             multiple
+            getOptionSelected={(option, value) => option.name === value.name}
             options={plants}
             value={plant}
             style={{ width: 300 }}
             onChange={handlePlants}
             getOptionLabel={(option) => option.name}
             renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="outlined"
-                label="Select"
-                // placeholder="Favorites"
-              />
+              <TextField {...params} variant="outlined" label="Select" />
             )}
           />
         ) : (
           plant.map((element, index) => plant[index].name).join(", ")
         )}
-        {/* <div>
-          {jsonData.data.plants
-            .map((element, index) => element.name)
-            .join(", ")}
-        </div> */}
       </Grid>
 
       <Grid item lg={8} sm={6} md={4}>

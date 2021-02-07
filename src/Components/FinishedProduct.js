@@ -14,7 +14,7 @@ const FinishedProduct = () => {
     alert("Your data has been successfully saved.");
   };
 
-  const [name, setName] = useState("Milkshake");
+  const [name, setName] = useState("");
   const [itemCode, setItemCode] = useState("");
   const handleTextChange = (event) => {
     if (event.target.name === "name") {
@@ -23,17 +23,18 @@ const FinishedProduct = () => {
       setItemCode(event.target.value);
     }
   };
+
   const [brand, setBrand] = useState("");
   const brands = ["Amul", "MotherDairy", "Saras", "Britania"];
   const handleBrands = (event, value) => {
-    // console.log("event:", event, "value:", value);
+    // console.log("BrandEvent:", event, "BrandValue:", value);
     setBrand(value);
   };
 
   const [Ingredients, setIngredients] = useState([]);
   const ingredient = ["Milk", "Sugar", "Added Flavour", "Milk Powder"];
   const handleIngredient = (event, value) => {
-    // console.log("event:", event, "value:", value);
+    // console.log("IngredientEvent:", event, "IngredientValue:", value);
     setIngredients(value);
   };
 
@@ -45,7 +46,7 @@ const FinishedProduct = () => {
     { name: "America" },
   ];
   const handleCountry = (event, value) => {
-    // console.log("event:", event, "value:", value);
+    // console.log("CountryEvent:", event, "CountryValue:", value);
     setCountries(value);
   };
   const [parameter, setParameter] = useState({});
@@ -74,7 +75,8 @@ const FinishedProduct = () => {
     },
   ];
   const handlePlants = (event, value) => {
-    console.log("event:", event, "value:", value);
+    console.log("HandleEvent:", event, "HandleValue:", value);
+    setPlant(value);
   };
   return (
     <Grid container spacing={3}>
@@ -126,7 +128,7 @@ const FinishedProduct = () => {
             value={Ingredients}
             onChange={handleIngredient}
             options={ingredient}
-            //   getOptionLabel={(option) => option.title}
+            // getOptionLabel={(option) => option.title}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -144,6 +146,7 @@ const FinishedProduct = () => {
         {editState ? (
           <Autocomplete
             multiple
+            getOptionSelected={(option, value) => option.name === value.name}
             value={countries}
             onChange={handleCountry}
             style={{ width: 300 }}

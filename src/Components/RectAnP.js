@@ -32,10 +32,6 @@ const RectAnP = () => {
         <li>perimeter: {op.perimeter}</li>
       </ul>
       <br />
-      <Link to="/">
-        {" "}
-        <button>Home</button>
-      </Link>
     </form>
   );
 };
