@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { HashRouter, useHistory } from "react-router-dom";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Components/Home";
@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <div style={{ backgroundColor: "rgb(207, 236, 236) " }}>
-      <Router>
+      <HashRouter>
         <AppBar position="fixed">
           <Toolbar>
             <Link to="/">
@@ -137,7 +137,7 @@ const App = () => {
             <Route path="/RectAnP" exact component={RectAnP} />
           </Switch>
         </div>
-      </Router>{" "}
+      </HashRouter>
     </div>
   );
 };
