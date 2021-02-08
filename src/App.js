@@ -61,7 +61,6 @@ const App = () => {
                 SolutionRank
               </Box>
             </Typography>
-
             <Link to="/">
               {" "}
               <Button

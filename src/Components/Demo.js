@@ -3,9 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import { Check, Create } from "@material-ui/icons";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import Checkbox from "@material-ui/core/Checkbox";
-import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@material-ui/icons/CheckBox";
 
 const Demo = (props) => {
   const jsonData = {
@@ -128,7 +125,11 @@ const Demo = (props) => {
       name: "param2",
     },
   ];
-  const [country, setCountry] = useState("India");
+  const handleParameter = (event, value) => {
+    setParameter(value);
+  };
+
+  const [country, setCountry] = useState({ name: "India" });
   const countries = [
     {
       code: "IN",
@@ -145,14 +146,9 @@ const Demo = (props) => {
     },
   ];
 
-  const handleParameter = (event, value) => {
-    if (event.target.name === "country") {
-      setCountry(value);
-    } else {
-      setParameter(value);
-    }
+  const handleCountry = (event, value) => {
+    setCountry(value);
   };
-
   const [plant, setPlant] = useState([{ name: "Nature's Touch LLC" }]);
   const plants = [
     {
@@ -175,7 +171,6 @@ const Demo = (props) => {
       <Grid item lg={12}>
         <h1>General Information</h1>
       </Grid>
-      {/* <Grid item container justify="flex-end"> */}
       <Grid item lg={12} style={{ textAlign: "right" }}>
         {!isEditable ? (
           <Create onClick={() => setIsEditable(true)} />
@@ -248,10 +243,11 @@ const Demo = (props) => {
 
         {isEditable ? (
           <Autocomplete
-            onChange={handleParameter}
+            onChange={handleCountry}
             name="country"
             value={country}
             options={countries}
+            getOptionLabel={(option) => option.name}
             style={{ width: 300 }}
             renderInput={(params) => (
               <TextField
@@ -262,7 +258,7 @@ const Demo = (props) => {
             )}
           />
         ) : (
-          country
+          country.name
         )}
       </Grid>
 
